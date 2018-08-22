@@ -2038,6 +2038,7 @@ body {
 
 .main-header {
   min-height: 55px;
+  max-height: 100px;
   width: 100%;
   background: #ffffff;
   position: fixed;

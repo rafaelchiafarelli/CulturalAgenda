@@ -1,7 +1,8 @@
-{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
+{% load staticfiles %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <title>Agenda Cultural Ituana</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
@@ -14,7 +15,10 @@
     
     
 </head>
+
+
 <body>
+
     <div class="wrapper">
         <div class="main-header">
             <div class="logo-header">
@@ -41,7 +45,7 @@
                     </form>
                     <!-- this is the insert_modal button -->
                     <ul class="nav-item update-pro">
-                        <button  data-toggle="modal" data-target="#modalUpdate">
+                        <button  data-toggle="modal" data-target="#modalRecord">
                             <i class="la la-hand-pointer-o"></i>
                             <p>Cadastre Um Evento!</p>
                             <!-- code the modal and event insertion -->
@@ -51,10 +55,10 @@
                     <!-- this is the buttons on the far right -->
                     <ul class="navbar-nav topbar-nav ml-md-auto align-items-center">
                         <li class="nav-item dropdown hidden-caret">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="la la-envelope"></i>
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
                                 <a class="dropdown-item" href="#">Enviar Mensagem</a>
                                 <a class="dropdown-item" href="#">Receber notificacoes</a>
                                 <div class="dropdown-divider"></div>
@@ -64,11 +68,12 @@
                         <li class="nav-item dropdown hidden-caret">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="la la-bell"></i>
+                                <!--Put the correct amount of changes here-->
                                 <span class="notification">3</span>
                             </a>
                             <ul class="dropdown-menu notif-box" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <div class="dropdown-title">You have 4 new notification</div>
+                                    <div class="dropdown-title">Atividades Recentes!</div>
                                 </li>
                                 <li>
                                     <div class="notif-center">
@@ -78,7 +83,6 @@
                                                 <span class="block">
                                                     Novos eventos cadastrados
                                                 </span>
-                                                <span class="time">5 minutes ago</span> 
                                             </div>
                                         </a>
                                         <a href="#">
@@ -87,7 +91,6 @@
                                                 <span class="block">
                                                     Novos Comentarios
                                                 </span>
-                                                <span class="time">12 minutes ago</span> 
                                             </div>
                                         </a>
                                         <a href="#">
@@ -95,27 +98,21 @@
                                             <div class="notif-content">
                                                 <span class="block">
                                                     Eventos Finalizados.
-                                                </span>
-                                                <span class="time">12 minutes ago</span> 
+                                                </span> 
                                             </div>
                                         </a>
                                         <a href="#">
                                             <div class="notif-icon notif-danger"> <i class="la la-asterisk"></i> </div>
                                             <div class="notif-content">
-                                                <span class="block">
+                                                <span class="block">    
                                                     Eventos Bloqueados!
                                                 </span>
-                                                <span class="time">17 minutes ago</span> 
                                             </div>
                                         </a>
                                     </div>
                                 </li>
-                                <li>
-                                    <a class="see-all" href="javascript:void(0);"> <strong>Todas as Novidades</strong> <i class="la la-angle-right"></i> </a>
-                                </li>
                             </ul>
                         </li>
-
                         </ul>
                     </div>
                 </nav>
@@ -151,12 +148,12 @@
                                 <span class="badge badge-count">50</span>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="tables.html"> <!-- open the record modal -->
-                                <i class="la la-th"></i>
-                                <p>Cadastrar Evento</p>
-                                <span class="badge badge-count">6</span>
-                            </a>
+                        <li class="nav-item update-pro">
+                            <button   data-toggle="modal" data-target="#modalRecord">
+                                <i class="la la-hand-pointer-o"></i>
+                                <p>Cadastre Um Evento!</p>
+                                <!-- code the modal and event insertion -->
+                            </button>
                         </li>
                         <li class="nav-item">
                             <a href="notifications.html">
@@ -169,7 +166,7 @@
                             <a href="typography.html">
                                 <i class="la la-font"></i>
                                 <p>Teatro</p>
-                                <span class="badge badge-danger">25</span>
+                                <span class="badge badge-danger">25</span> <!-- dinamically allocate the badge (find out this)-->
                             </a>
                         </li>
                         <li class="nav-item">
@@ -189,7 +186,21 @@
                         <li class="nav-item">
                             <a href="typography.html">
                                 <i class="la la-font"></i>
-                                <p>Teatro</p>
+                                <p>Evento Nerd</p>
+                                <span class="badge badge-danger">25</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="typography.html">
+                                <i class="la la-font"></i>
+                                <p>Eventos Religiosos</p>
+                                <span class="badge badge-danger">25</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="typography.html">
+                                <i class="la la-font"></i>
+                                <p>18+</p>
                                 <span class="badge badge-danger">25</span>
                             </a>
                         </li>
@@ -208,67 +219,14 @@
                     </ul>
                 </div>
             </div>
-            <div class="main-panel">
 
-                <h6 class="title">Cadastre um Evento!</h6>
-                    <p >
-                    Programe-se para os eventos! Se quiser<!--change this to a valid page --> <a href="https://twitter.com/Eli_White">adicione um evento!</a>   
-                    </p>
-                <div id="schedule" class="container">
 
-                    <div id= "schedule-carousel" class="carousel slide">
-                        <ol class = "carousel-indicators">
-                            <li data-target = "#schedule-carousel" data-slide-to = "0" class = "active"></li>
-                            <li data-target = "#schedule-carousel" data-slide-to = "1" ></li>
-                            <li data-target = "#schedule-carousel" data-slide-to = "2" ></li>
-                        </ol>
-                    
-                        <div class="carousel-inner">
-                            <div class= "carousel-item active">
-                                <img alt = "JeryRyan" class = "img-responsive" src="{% static 'img/img1.jpeg'%}" style="width:100%;">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5>This should be the name of the Event</h5>
-                                    <p>and this should be a sort description</p>
-                                </div>
-                            </div>
-                            <div class= "carousel-item">
-                            <img alt = "JeryRyan" class = "img-responsive" src="{% static 'img/img2.jpg'%}" style="width:100%;" >
-                            </div>
-                            <div class= "carousel-item">
-                            <img alt = "JeryRyan" class = "img-responsive" src="{% static 'img/img3.jpg'%}" style="width:100%;" >
-                            </div>
-                        </div>        
-                   <a class="carousel-control-prev" href="#schedule-carousel" data-slide="prev"/>
-                   <span class = "carousel-control-prev-icon"></span>
-                   </a>
-                   <a class="carousel-control-next" href="#schedule-carousel" data-slide="next"/>
-                   <span class = "carousel-control-next-icon"></span>
-                   </a>
-                </div>
-            </div>
-    </div>
-
-    <!-- Modal -->
-    <div class="modal fade" id="modalUpdate" tabindex="-1" role="dialog" aria-labelledby="modalUpdatePro" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header bg-primary">
-                    <h6 class="modal-title"><i class="la la-frown-o"></i> Cadastre um Evento!</h6>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body text-center">                                    
-                    <p>Estamos sempre tentando melhorar <b>Agenda Cultural</b></p>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
+{% block body %}
+{% endblock %} 
+       </div>
+</div>
+    </body>
+    
 <script src ="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="{% static 'js/bootstrap.js'%}"></script>
 <script src="{% static 'js/core/jquery.3.2.1.min.js'%}"></script>
