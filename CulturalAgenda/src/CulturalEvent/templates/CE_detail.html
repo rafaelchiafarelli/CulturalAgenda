@@ -1,0 +1,29 @@
+
+{% extends 'CE_base.html' %}
+
+{% block details_content %}
+  {% load staticfiles %}
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+	  	 	<div class="col col-4">
+          {% if instance.File %}
+          <img alt = "{{instance.str}}" class = "img-responsive" src="{{instance.File.url}}" style="width:100%;">
+          {% else %}
+          <img alt = "{{instance.str}}" class = "img-responsive" src="{% static 'img/default_event_image.jpg' %}" style="width:100%;">
+          {% endif %}
+			</div>
+			<div class="col col-md-auto">
+        	<h5 class="tittle">"{{instance.tittle}}"</h5>
+        	<p>"Valor: {{instance.price}}"</p>
+        	<p>"Local: {{instance.location}}"</p>
+        	<p>"Telefone: {{instance.CE_phonenumber}}"</p>
+        	<p>"WhatsApp: {{instance.CE_isWhatsApp}}"</p>
+   			</div>
+   		</div>
+   		<div class="row justify-content-center">
+   			<h5 class="tittle">"Descricao: {{instance.description}}"</h5>
+   		</div>
+   </div>
+
+
+{% endblock details_content %}
