@@ -1,0 +1,10 @@
+{% extends 'CE_base.html' %}
+
+{% block account_form %}
+
+<form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
+{{ form.as_p }}
+<input type="submit" class='btn btn-default' value='Efetuar login' name='myfiles'/>
+</form>
+
+{% endblock account_form%}

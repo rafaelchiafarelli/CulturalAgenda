@@ -6,6 +6,7 @@ from .forms import CulturalEventForm
 from .models import CulturalEvent
 from django.views.generic.detail import DetailView
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 #	tittle			= models.CharField(blank = False, null = False, max_length=120)
 #	description		= models.TextField(blank=True, null = True)
 #	price 			= models.DecimalField(blank = True, null = True,max_digits=10,decimal_places = 2)
@@ -26,7 +27,7 @@ from django.conf import settings
 #	CE_isWhatsApp	= models.NullBooleanField(blank = True)
 	
 
-
+@login_required(login_url='/login_view/')
 def culturalevent_create_view(request):
 
 	form = CulturalEventForm(request.POST or None, request.FILES)

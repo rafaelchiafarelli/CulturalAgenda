@@ -18,6 +18,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR),'static')
 STATIC_DIRS = 'static'
 TEMPLATES_CE = os.path.join(os.path.dirname(BASE_DIR),"CulturalEvent/templates")
+TEMPLATES_AC = os.path.join(os.path.dirname(BASE_DIR),"Accounts/templates")
 TEMPLATES_MP = os.path.join(os.path.dirname(BASE_DIR),"MainPage/templates")
 TEMPLATES_CA = os.path.join(os.path.dirname(BASE_DIR),"templates")
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),'media')
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'CulturalEvent',
     'MainPage',
     'phonenumber_field',
+    'Accounts',
 ]
 
 MIDDLEWARE = [
@@ -69,7 +71,7 @@ STATICFILES_DIRS = [
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_CE,TEMPLATES_MP,TEMPLATES_CA],
+        'DIRS': [TEMPLATES_CE,TEMPLATES_MP,TEMPLATES_CA,TEMPLATES_AC],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
