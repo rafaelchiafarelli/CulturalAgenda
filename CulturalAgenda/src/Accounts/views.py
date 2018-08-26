@@ -43,7 +43,7 @@ def register_view(request):
 			user.set_password(password)
 			print('save user data')
 			user.save()
-			new_user = authenticate(username=user.username,password = user.password)
+			user = form.login(request)
 			
 			print("then try to login")
 			login(request, new_user)

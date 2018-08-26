@@ -53,13 +53,18 @@ def culturalevent_list_view(request,choice):
 	for c in CulturalEventTypes:
 			if int(choice) == int(c[0]):
 				CE_Events = CulturalEvent.objects.filter(CE_type = choice)
+				type = c[1]
 
-	context = {'CE_Events':CE_Events}
+	context = {
+				'CE_Events':CE_Events,
+				'type':type,
+
+				}
 	return render(request,"CE_list.html",context)
 
 def newer_events(request):
-	CE_Events_not_ordered = CulturalEvent.objects.all().order_by('-id')[:10]
-	CE_Events = reversed(CE_Events_not_ordered)
+	CE_Events= CulturalEvent.objects.all().order_by('-id')[:5]
+	#CE_Events = reversed(CE_Events_not_ordered)
 	context = {'CE_Events':CE_Events}
 	return render(request,"CE_list.html",context)
 

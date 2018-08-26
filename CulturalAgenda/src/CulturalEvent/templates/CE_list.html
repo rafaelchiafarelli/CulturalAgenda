@@ -1,12 +1,12 @@
 
 {% extends 'CE_base.html' %}
 
-<p>This is from CE_List</p>
+
 <!-- CAROUSEL=WILL GET THE LIST AND POPULATE THE CAROUSEL-->
 {% block CE_list %}
 {% load staticfiles %}
             <div class="container-fluid">
-            <div class="row align-items-center"><h6>Lista de eventos </h6></div>
+            <div class="row align-items-center"><h6>Lista de eventos do tipo "{{type}}".</h6></div>
             
             <div class="row align-items-center">
                 <div id="schedule" class="container">
@@ -27,7 +27,7 @@
                         	{% if forloop.counter0 == 0 %}
                             <div class= "carousel-item active"> 
                                 <div class ="container text-center" >
-                                <a href="details_event/{{CE.id}}"> 
+                                <a href="/details_event/{{CE.id}}"> 
                                 {% if CE.File %}
                                 <img alt = "{{CE.str}}" class = "img-responsive" src="{{CE.File.url}}" style="width:100%;">
                                 {% else %}
@@ -41,7 +41,7 @@
                             {% else %}
                             <div class= "carousel-item">
                                 <div class ="container text-center" >
-                                <a href="details_event/{{CE.id}}"> 
+                                <a href="/details_event/{{CE.id}}"> 
                                 {% if CE.File %}
                                 <img alt = "{{CE.str}}" class = "img-responsive" src="{{CE.File.url}}" style="width:100%;">
                                 {% else %}

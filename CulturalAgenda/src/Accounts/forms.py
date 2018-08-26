@@ -37,9 +37,8 @@ class UserRegisterForm(forms.ModelForm):
 		fields = [
 				'username',				
 				'password',
-				'email2',
 				'email',
-				
+				'email2',
 		]
 	def clean(self, *args, **kwargs):
 		print(self.cleaned_data)
