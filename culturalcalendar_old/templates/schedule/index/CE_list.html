@@ -1,9 +1,0 @@
-{% extends 'schedule/index/base.html' %}
-
-{% block body %}
-<ul>
-    {% for CE_ in CE_Events%}
-        <li><a href="{% url culturalevent:detail CE_.id %}">{{ CE_.CE_Name }}</a></li>
-    {% endfor %}
-</ul>
-{% endblock %}
