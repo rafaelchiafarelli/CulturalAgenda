@@ -72,7 +72,7 @@
 						</li>
 						<li>
 							<div class="notif-center">
-								<a href="newer_events">
+								<a href="" data-toggle="modal" data-target="#new_event_modal" >
 									<div class="notif-icon notif-primary"> <i class="la la-user-plus"></i> </div>
 									<div class="notif-content">
 										<span class="block">
@@ -80,7 +80,7 @@
 										</span>
 									</div>
 								</a>
-								<a href="#">
+								<a href="" data-toggle="modal" data-target="#ListEvent{{item_n}}" >
 									<div class="notif-icon notif-success"> <i class="la la-comment"></i> </div>
 									<div class="notif-content">
 										<span class="block">
@@ -131,21 +131,21 @@
 				</a>
 			</li>
 			<li class="nav-item ">
-				<a href="newer_events">
+				<a href="" data-toggle="modal" data-target="#new_event_modal" >>
 					<i class="la la-dashboard"></i>
 					<p>Adicionados Recentemente</p>
 					<span class="badge badge-count">5</span> <!--aqui que vai o resultado da busca -->
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="next_events">
+				<a href="" data-toggle="modal" data-target="#next_event_modal" >
 					<i class="la la-table"></i>
 					<p>Proximos Eventos</p>
 					<span class="badge badge-count"></span>
 				</a>
 			</li>
 			<li class="nav-item">
-				<a href="location">
+				<a href="" data-toggle="modal" data-target="#location_modal" >
 					<i class="la la-keyboard-o"></i>
 					<p>Por Bairro</p>
 					<span class="badge badge-count"></span>
@@ -295,7 +295,67 @@
   </div>
 </div>
 {% endfor %}  
+<!-- next_event_modal location_modal new_event_modal
+	CE_NewEvents= CulturalEvent.objects.all().order_by('-id')[:5]
+	CE_ordered_by_date_events = CulturalEvent.objects.all().order_by('-CE_Date')
+	CE_ordered_by_location_events = CulturalEvent.objects.all().order_by('-location')
+ -->
+<div class="modal fade" id="next_event_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nome do Evento mais recentes</h5>
 
+      </div>
+      <div class="modal-body">
+      	{% include "CE_list.html" with CE_NewEvents=list type='Mais novos'%}
+      </div>
+      <div class="modal-footer">
+      	<a href="/">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="new_event_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Eventos em ordem de data</h5>
+
+      </div>
+      <div class="modal-body">
+      	{% include "CE_list.html" with CE_NewEvents=new_event_modal type="Proximos" %}
+      </div>
+      <div class="modal-footer">
+      	<a href="/">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="location_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Organizados por localizacao</h5>
+
+      </div>
+      <div class="modal-body">
+      	{% include "CE_list.html" with CE_NewEvents=CE_ordered_by_location_events type="Localizacao" %}
+      </div>
+      <div class="modal-footer">
+      	<a href="/">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+    </a>
+      </div>
+    </div>
+  </div>
+</div>
 
 </div>
 </body>
