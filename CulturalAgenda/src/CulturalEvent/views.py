@@ -7,6 +7,7 @@ from .models import CulturalEvent
 from django.views.generic.detail import DetailView
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse
 #	tittle			= models.CharField(blank = False, null = False, max_length=120)
 #	description		= models.TextField(blank=True, null = True)
 #	price 			= models.DecimalField(blank = True, null = True,max_digits=10,decimal_places = 2)
@@ -39,6 +40,22 @@ def culturalevent_create_view(request):
 		'form':form
 	}
 	return render(request,"CE_save.html",context) 
+
+
+
+@login_required(login_url='/login_view/')
+def culturalevent_create(request):
+
+	form = CulturalEventForm(request.POST or None, request.FILES)
+	print("reached here")
+	if form.is_valid():
+		print("reached here too")
+		form.save()
+		print("testing is dumb")
+		return redirect("/")
+
+	return form
+
 
 def culturalevent_detail_view(request, id):
 	instance = get_object_or_404(CulturalEvent,id=id)

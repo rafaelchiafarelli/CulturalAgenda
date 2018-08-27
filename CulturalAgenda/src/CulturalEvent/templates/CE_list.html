@@ -1,23 +1,20 @@
 
-{% extends 'CE_base.html' %}
-
 
 <!-- CAROUSEL=WILL GET THE LIST AND POPULATE THE CAROUSEL-->
 {% block CE_list %}
 {% load staticfiles %}
             <div class="container-fluid">
-            <div class="row align-items-center"><h6>Lista de eventos do tipo "{{type}}".</h6></div>
-            
+
             <div class="row align-items-center">
                 <div id="schedule" class="container">
                     
-                    <div id= "schedule-carousel" class="carousel slide" data-interval="3000" data-pause="hover" data-wrap="true" data-ride="carousel">
+                    <div id= "{{type}}-carousel" class="carousel slide" data-interval="3000" data-pause="hover" data-wrap="true" data-ride="carousel">
                         <ol class = "carousel-indicators">
                         	{% for ce in CE_Events %}
                         	{% if forloop.counter0 == 0 %}
-                            <li data-target = "#schedule-carousel" data-slide-to = "{{forloop.counter0}}"  class = "active"></li>
+                            <li data-target = "#{{type}}-carousel" data-slide-to = "{{forloop.counter0}}"  class = "active"></li>
                             {% else %}
-                            <li data-target = "#schedule-carousel" data-slide-to = "{{forloop.counter0}}"></li>
+                            <li data-target = "#{{type}}-carousel" data-slide-to = "{{forloop.counter0}}"></li>
                             {% endif %}
                             {% endfor %}
                         </ol>
@@ -55,18 +52,14 @@
                             {% endif %}
                             {% endfor %}
                         </div>        
-                   <a class="carousel-control-prev" href="#schedule-carousel" data-slide="prev">
+                   <a class="carousel-control-prev" href="#{{type}}-carousel" data-slide="prev">
                    <span class = "carousel-control-prev-icon"></span>
                    </a>
-                   <a class="carousel-control-next" href="#schedule-carousel" data-slide="next">
+                   <a class="carousel-control-next" href="#{{type}}-carousel" data-slide="next">
                    <span class = "carousel-control-next-icon"></span>
                    </a>
                     </div>
                 </div>
                 </div>
             </div>
-
-
-
-
 {% endblock CE_list %}

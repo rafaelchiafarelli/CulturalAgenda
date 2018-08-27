@@ -4,8 +4,17 @@
 {% block details_content %}
   {% load staticfiles %}
 	<div class="container-fluid">
+    <div class="row justify-items-center">
+
+    </div>
 		<div class="row justify-content-center">
+
 	  	 	<div class="col col-4">
+        <div class="container">
+            <a href="/">
+            <button type='button' class='btn btn-default' value='pagina inicial' name=''>Pagina Inicial</button>
+            </a>
+        </div>
           {% if instance.File %}
           <img alt = "{{instance.str}}" class = "img-responsive" src="{{instance.File.url}}" style="width:100%;">
           {% else %}
@@ -24,6 +33,4 @@
    			<h5 class="tittle">"Descricao: {{instance.description}}"</h5>
    		</div>
    </div>
-
-
 {% endblock details_content %}

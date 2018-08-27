@@ -64,6 +64,11 @@ class CulturalEventForm(forms.ModelForm):
 				'location':'local',
 				'File':'imagem de divulgacao',
 				'CE_type':'tipo de evento',
+				'CE_email':'email de divulgacao',
+				'CE_phonenumber':'telefone de informacoes',
+				'CE_isWhatsApp':'esse telefone e WhatsApp',
+				'CE_Date':'data do evento',
+				'CE_Time':'hora do evento',
 		}
 		help_texts = {
 				'tittle':'Um titulo para seu evento',
@@ -74,6 +79,11 @@ class CulturalEventForm(forms.ModelForm):
 				'location':'local onde acontecera o evento',
 				'File':'uma imagem/folder/panfleto do seu evento',
 				'CE_type':'seu evento se assemelha a qual dessas opcoes?',
+				'CE_email':'use um email de diulgacao para as pessoas se informarem',
+				'CE_phonenumber':'telefone para informacoes sobre o evento',
+				'CE_isWhatsApp':'selecione se for WhatsApp',
+				'CE_Date':'coloque a data do primeiro dia do evento',
+				'CE_Time':'hora do evento',
 		}
 		error_messages={
 				'tittle':{'required': 'Obrigatorio'},

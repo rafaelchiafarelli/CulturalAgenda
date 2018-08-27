@@ -21,14 +21,15 @@ from django.conf import settings
 from django.views.static import serve
 
 
-from MainPage.views import home_view
+from MainPage.views import home_view, Main, MainReload
 from Accounts.views import login_view, register_view, logout_view
 from CulturalEvent.views import culturalevent_detail_view, culturalevent_create_view, culturalevent_list_view, newer_events, next_events, location
 
 
 from django.conf.urls.static import static
 urlpatterns = [
-	path('', home_view, name='home'),
+	path('', Main, name='home'),
+    path('reload/', MainReload, name='home'),
     path('create_event/',culturalevent_create_view),
     path('details_event/<int:id>',culturalevent_detail_view,name='culuturalevent'),
     path('list_event/<int:choice>',culturalevent_list_view,name='culuturalevent'),

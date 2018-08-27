@@ -12,7 +12,7 @@ class CulturalEvent(models.Model):
 	description		= models.TextField(blank=True, null = True)
 	price 			= models.DecimalField(blank = True, null = True,max_digits=10,decimal_places = 2)
 	summary			= models.TextField(blank = False, null = False)
-	over18			= models.NullBooleanField(default=False,blank = True, null = True)
+	over18			= models.NullBooleanField(default=False)
 	location		= models.CharField(blank = True, null = True, max_length=120)
 	File 			= models.ImageField(blank=True, null = True,
 					upload_to=upload_location,

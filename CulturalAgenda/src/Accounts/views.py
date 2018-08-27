@@ -7,50 +7,40 @@ from .forms import UserLoginForm, UserRegisterForm
 
 
 # Create your views here.
+def login_form(request):
+	next = request.GET.get('next')
+	print('loggin module')
+	form = UserLoginForm(request.POST or None)
+	return form
+
 def login_view(request):
 	next = request.GET.get('next')
+	print('loggin module')
+	print(request)
 	form = UserLoginForm(request.POST or None)
+	print(form)
 	if request.POST and form.is_valid():
-		print("load the user from the form!")
 		user = form.login(request)
-		print("user is loaded")
 		if user:
-			print("try tolog in!")
 			login(request, user)
-			print("logged in!")
 			if next:
 				return redirect(next)
 			return redirect("/")
-	print("not logged in!")
-	return render(request,"loggin.html",{'form':form})
-
-
-    
-        
+	return render(request,"loggin.html",{'loggin_form':form})
 
 def register_view(request):
 	form = UserRegisterForm(request.POST or None)
-	print("is the form valid")
 	if request.POST and form.is_valid():
-		print("the form is valid")
 		user = form.save(commit=False)
 		if user:
-			print("is the user VALID")	
-			print(user.password)
-			print(user.email)
-			print(user.username)
 			password = form.cleaned_data.get('password')
 			user.set_password(password)
-			print('save user data')
 			user.save()
-			user = form.login(request)
-			
-			print("then try to login")
+			user = authenticate(username=user.username, password=password)
 			login(request, new_user)
-			print("logged in!")
 		#login(request,user)
 	context = {
-	"form":form,
+	"loggin_form":form,
 	}
 	return render(request,"register_form.html",context)
 
