@@ -1,15 +1,12 @@
-{% extends 'CE_base.html' %}
 
-{% block account_form %}
 {% load staticfiles %}
 <form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
-{{ form.as_p }}
+{{ loggin_form.as_p }}
+
 <a>
-<input type="submit" class='btn btn-default' value='Efetuar login' name='myfiles'/>
+<input type="submit" class='btn btn-default' value='Efetuar login' name='login'/>
 </a>
 <a href="/register_view/">
 <button type='button' class='btn btn-default' value='Registrar' name=''>Registrar</button>
 </a>
 </form>
-
-{% endblock account_form%}
