@@ -1,11 +1,13 @@
 {% extends 'CE_base.html' %}
 
 {% block content_save %}
+{% load staticfiles %}
 
-<form method='POST' action='' enctype='multipart/form-data'> {% csrf_token %}
-{{ form.as_table }}
-<input type="submit" class='btn btn-default' value='Cadastrar Evento' name='myfiles'/>
-</form>
+      <form method='POST' id="ThisInsertForm" action='' enctype='multipart/form-data' name='InsertEvent'> {% csrf_token %}
+      {{ FormToInsert.as_table }}
+      <input type="submit" class='btn btn-primary' value='Cadastrar Evento' name='InsertEvent'/>
+      <input type="button" class='btn btn-secondary' value='Cancelar' data-dismiss="modal" name='InsertEvent'/>
+      </form>
 
 
 

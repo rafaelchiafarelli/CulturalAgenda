@@ -253,16 +253,21 @@
       </div>
       <div class="modal-body">
       	{% if user.is_authenticated %}
-			<form method='POST' id="ThisInsertForm" action='' enctype='multipart/form-data'> {% csrf_token %}
-			{{ InsertForm }}
-			<input type="submit" class='btn btn-primary' value='Cadastrar Evento' name='myfiles'/>
-			<input type="button" class='btn btn-secondary' value='Cancelar' data-dismiss="modal" name='myfiles'/>
-			</form>
+
+	      <form method='POST' id="ThisInsertForm" action='' enctype='multipart/form-data' name='InsertEvent'> {% csrf_token %}
+	      {{ InsertForm.as_table }}
+	      <input type="submit" class='btn btn-primary' value='Cadastrar Evento' name='InsertEvent'/>
+	      <input type="button" class='btn btn-secondary' value='Cancelar' data-dismiss="modal" name='InsertEvent'/>
+	      </form>
+
+
 		{% else %}
+
 			{% include "loggin.html" with loggin_form=InsertForm %}
+
 		{% endif %}
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer"> 
       </div>
     </div>
   </div>

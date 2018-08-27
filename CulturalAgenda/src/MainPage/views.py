@@ -22,7 +22,9 @@ def Main(request, *args, **kwargs):
 			print('will login')
 			return login_view(request)
 		if 'InsertEvent' in request.POST:
-			return redirect("/")
+			print('will insert the event')
+			return culturalevent_create_view(request)
+			
 
 	if request.user.is_authenticated:
 		print("what is this?")
@@ -30,9 +32,7 @@ def Main(request, *args, **kwargs):
 	else:
 		print("not logged in")
 		InsertForm = UserLoginForm
-	print(InsertForm)
-	print(request.user)
-	
+
 	CE_Events = CulturalEvent.objects.all()
 	CE_NewEvents= CulturalEvent.objects.all().order_by('-id')[:5]
 	CE_ordered_by_date_events = CulturalEvent.objects.all().order_by('-CE_Date')

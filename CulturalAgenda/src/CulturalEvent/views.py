@@ -37,7 +37,7 @@ def culturalevent_create_view(request):
 		form.save()
 		return render(request,"CE_success.html")
 	context = {
-		'form':form
+		'FormToInsert':form
 	}
 	return render(request,"CE_save.html",context) 
 
@@ -47,13 +47,6 @@ def culturalevent_create_view(request):
 def culturalevent_create(request):
 
 	form = CulturalEventForm(request.POST or None, request.FILES)
-	print("reached here")
-	if form.is_valid():
-		print("reached here too")
-		form.save()
-		print("testing is dumb")
-		return redirect("/")
-
 	return form
 
 
